@@ -50,7 +50,26 @@ let gradDateCheckbox = document.getElementsByName("gradDate");
 console.log(standingCheckbox);
 let varForm = document.getElementById("ch3form");
 varForm.addEventListener("submit", function () {
+  let standingChecked = false;
+  let gradDateChecked = false;
+
   for (i = 0; i < standingCheckbox.length; i++) {
-    if (standingCheckbox[i].checked) console.log(standingCheckbox[i].value);
+    if (standingCheckbox[i].checked) {
+      standingChecked = true;
+    }
+  }
+  for (i = 0; i < gradDateCheckbox.length; i++) {
+    if (gradDateCheckbox[i].checked) {
+      gradDateChecked = true;
+    }
+  }
+
+  if (standingChecked && gradDateChecked) {
+    console.log("All good!");
+  } else {
+    alert(
+      "Please select an option in both sections before submitting the form!"
+    );
+    return false;
   }
 });
